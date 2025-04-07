@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
-import { MdKeyboardArrowDown, MdMenu, MdClose } from 'react-icons/md';
+import { useState } from "react";
+import { Link } from "react-router";
+import { MdKeyboardArrowDown, MdMenu, MdClose } from "react-icons/md";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,54 +16,72 @@ const Navbar = () => {
 
   const menuItems = {
     platform: {
-      title: 'Platform',
+      title: "Platform",
       sections: [
         {
-          title: 'BUILD',
+          title: "BUILD",
           items: [
-            { name: 'Design', desc: 'Build high-performing sites' },
-            { name: 'Edit mode', desc: 'Empower your content team' },
-            { name: 'Interactions', desc: 'Craft immersive experiences' },
-            { name: 'Page building', desc: 'Launch simple landing pages quickly', isNew: true },
-          ]
+            { name: "Design", desc: "Build high-performing sites" },
+            { name: "Edit mode", desc: "Empower your content team" },
+            { name: "Interactions", desc: "Craft immersive experiences" },
+            {
+              name: "Page building",
+              desc: "Launch simple landing pages quickly",
+              isNew: true,
+            },
+          ],
         },
         {
-          title: 'MANAGE',
+          title: "MANAGE",
           items: [
-            { name: 'CMS', desc: 'Manage content at scale' },
-            { name: 'Hosting', desc: 'Host and scale your site without the hassle' },
-            { name: 'Localization', desc: 'Customize your site for a worldwide audience' },
-            { name: 'Security', desc: 'Ensure your site stays safe' },
-          ]
+            { name: "CMS", desc: "Manage content at scale" },
+            {
+              name: "Hosting",
+              desc: "Host and scale your site without the hassle",
+            },
+            {
+              name: "Localization",
+              desc: "Customize your site for a worldwide audience",
+            },
+            { name: "Security", desc: "Ensure your site stays safe" },
+          ],
         },
         {
-          title: 'OPTIMIZE',
+          title: "OPTIMIZE",
           items: [
-            { name: 'Analyze', desc: 'Understand how your site performs', isNew: true },
-            { name: 'Optimize', desc: 'Maximize conversions with testing', isNew: true },
-            { name: 'SEO', desc: 'Grow your reach with fine-tuned controls' },
-          ]
+            {
+              name: "Analyze",
+              desc: "Understand how your site performs",
+              isNew: true,
+            },
+            {
+              name: "Optimize",
+              desc: "Maximize conversions with testing",
+              isNew: true,
+            },
+            { name: "SEO", desc: "Grow your reach with fine-tuned controls" },
+          ],
         },
-      ]
+      ],
     },
     solutions: {
-      title: 'Solutions',
+      title: "Solutions",
       items: [
-        { name: 'For Enterprise', desc: 'Scale your business' },
-        { name: 'For Startups', desc: 'Move faster with CodeTutor' },
-        { name: 'For Agencies', desc: 'Win more clients' },
-        { name: 'For Marketing', desc: 'Drive more growth' },
-      ]
+        { name: "For Enterprise", desc: "Scale your business" },
+        { name: "For Startups", desc: "Move faster with CodeTutor" },
+        { name: "For Agencies", desc: "Win more clients" },
+        { name: "For Marketing", desc: "Drive more growth" },
+      ],
     },
     resources: {
-      title: 'Resources',
+      title: "Resources",
       items: [
-        { name: 'Showcase', desc: 'Get inspired by the community' },
-        { name: 'Blog', desc: 'Read latest news and articles' },
-        { name: 'Documentation', desc: 'Learn from our resources' },
-        { name: 'Community', desc: 'Join the conversation' },
-      ]
-    }
+        { name: "Showcase", desc: "Get inspired by the community" },
+        { name: "Blog", desc: "Read latest news and articles" },
+        { name: "Documentation", desc: "Learn from our resources" },
+        { name: "Community", desc: "Join the conversation" },
+      ],
+    },
   };
 
   return (
@@ -73,7 +91,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-xl font-bold">
-              <span className='text-blue-500'>CodeTutor</span> UI
+              <span className="text-blue-500">CodeTutor</span> UI
             </Link>
           </div>
 
@@ -86,9 +104,9 @@ const Navbar = () => {
                   className="hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center"
                 >
                   {menuItems[key].title}
-                  <MdKeyboardArrowDown 
+                  <MdKeyboardArrowDown
                     className={`ml-2 h-5 w-5 transition-transform ${
-                      activeDropdown === key ? 'transform rotate-180' : ''
+                      activeDropdown === key ? "transform rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -97,7 +115,7 @@ const Navbar = () => {
                 {activeDropdown === key && (
                   <div className="absolute left-0 mt-2 w-screen max-w-md bg-white rounded-md shadow-lg py-1 text-black">
                     <div className="grid md:grid-cols-2  grid-cols-1 gap-12 p-4">
-                      {key === 'platform' ? (
+                      {key === "platform" ? (
                         menuItems[key].sections.map((section, idx) => (
                           <div key={idx}>
                             <h3 className="text-xs font-semibold text-gray-500 tracking-wider mb-2">
@@ -119,7 +137,9 @@ const Navbar = () => {
                                         </span>
                                       )}
                                     </p>
-                                    <p className="text-sm text-gray-500">{item.desc}</p>
+                                    <p className="text-sm text-gray-500">
+                                      {item.desc}
+                                    </p>
                                   </div>
                                 </Link>
                               ))}
@@ -135,8 +155,12 @@ const Navbar = () => {
                               className="group flex items-start p-2 rounded-lg hover:bg-gray-50"
                             >
                               <div>
-                                <p className="text-sm font-medium text-gray-900">{item.name}</p>
-                                <p className="text-sm text-gray-500">{item.desc}</p>
+                                <p className="text-sm font-medium text-gray-900">
+                                  {item.name}
+                                </p>
+                                <p className="text-sm text-gray-500">
+                                  {item.desc}
+                                </p>
                               </div>
                             </Link>
                           ))}
@@ -147,16 +171,27 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <Link to="/enterprise" className="hover:text-gray-300">Enterprise</Link>
-            <Link to="/pricing" className="hover:text-gray-300">Pricing</Link>
+            <Link to="/enterprise" className="hover:text-gray-300">
+              Enterprise
+            </Link>
+            <Link to="/pricing" className="hover:text-gray-300">
+              Pricing
+            </Link>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="hover:text-gray-300 hidden xl:block">Log in</Link>
-            <Link to="/contact-sales" className="hover:text-gray-300 hidden xl:block">Contact sales</Link>
-            <Link 
-              to="/get-started" 
+            <Link to="/login" className="hover:text-gray-300 hidden xl:block">
+              Log in
+            </Link>
+            <Link
+              to="/contact-sales"
+              className="hover:text-gray-300 hidden xl:block"
+            >
+              Contact sales
+            </Link>
+            <Link
+              to="/get-started"
               className="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700"
             >
               Get started — it's free
@@ -191,57 +226,75 @@ const Navbar = () => {
                   className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
                 >
                   {menuItems[key].title}
-                  <MdKeyboardArrowDown 
+                  <MdKeyboardArrowDown
                     className={`ml-2 h-5 w-5 transition-transform ${
-                      activeDropdown === key ? 'transform rotate-180' : ''
+                      activeDropdown === key ? "transform rotate-180" : ""
                     }`}
                   />
                 </button>
                 {activeDropdown === key && (
                   <div className="pl-4">
-                    {key === 'platform' ? (
-                      menuItems[key].sections.map((section) => (
-                        <div key={section.title} className="py-2">
-                          <h3 className="text-xs font-semibold text-gray-400 tracking-wider mb-2">
-                            {section.title}
-                          </h3>
-                          {section.items.map((item, idx) => (
-                            <Link
-                              key={idx}
-                              to={`/${key}/${item.name.toLowerCase()}`}
-                              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
-                            >
-                              {item.name}
-                              {item.isNew && (
-                                <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                                  NEW
-                                </span>
-                              )}
-                            </Link>
-                          ))}
-                        </div>
-                      ))
-                    ) : (
-                      menuItems[key].items.map((item, idx) => (
-                        <Link
-                          key={idx}
-                          to={`/${key}/${item.name.toLowerCase()}`}
-                          className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
-                        >
-                          {item.name}
-                        </Link>
-                      ))
-                    )}
+                    {key === "platform"
+                      ? menuItems[key].sections.map((section) => (
+                          <div key={section.title} className="py-2">
+                            <h3 className="text-xs font-semibold text-gray-400 tracking-wider mb-2">
+                              {section.title}
+                            </h3>
+                            {section.items.map((item, idx) => (
+                              <Link
+                                key={idx}
+                                to={`/${key}/${item.name.toLowerCase()}`}
+                                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                              >
+                                {item.name}
+                                {item.isNew && (
+                                  <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                    NEW
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        ))
+                      : menuItems[key].items.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            to={`/${key}/${item.name.toLowerCase()}`}
+                            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
                   </div>
                 )}
               </div>
             ))}
-            <Link to="/enterprise" className="block px-3 py-2 rounded-md hover:bg-gray-700">Enterprise</Link>
-            <Link to="/pricing" className="block px-3 py-2 rounded-md hover:bg-gray-700">Pricing</Link>
-            <Link to="/login" className="block px-3 py-2 rounded-md hover:bg-gray-700">Log in</Link>
-            <Link to="/contact-sales" className="block px-3 py-2 rounded-md hover:bg-gray-700">Contact sales</Link>
-            <Link 
-              to="/get-started" 
+            <Link
+              to="/enterprise"
+              className="block px-3 py-2 rounded-md hover:bg-gray-700"
+            >
+              Enterprise
+            </Link>
+            <Link
+              to="/pricing"
+              className="block px-3 py-2 rounded-md hover:bg-gray-700"
+            >
+              Pricing
+            </Link>
+            <Link
+              to="/login"
+              className="block px-3 py-2 rounded-md hover:bg-gray-700"
+            >
+              Log in
+            </Link>
+            <Link
+              to="/contact-sales"
+              className="block px-3 py-2 rounded-md hover:bg-gray-700"
+            >
+              Contact sales
+            </Link>
+            <Link
+              to="/get-started"
               className="block px-3 py-2 rounded-md bg-blue-600 hover:bg-blue-700"
             >
               Get started — it's free
